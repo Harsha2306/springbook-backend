@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: springBook
+  main:
+    banner-mode: off
+
+logging:
+  level:
+    root: error
