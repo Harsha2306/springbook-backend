@@ -19,6 +19,18 @@ public class VideoController {
     return videoService.getVideoDtos();
   }
 
+  @GetMapping("byName")
+  public List<VideoResponseDto> getVideosByName(@RequestParam String name) {
+    return videoService.getVideosByName(name);
+  }
+
+  @GetMapping("search")
+  public List<VideoResponseDto> getVideosByNameAndDescription(
+      @RequestBody VideoRequestDto videoRequestDto) {
+    return videoService.getVideosByNameAndDescription(
+        videoRequestDto.name(), videoRequestDto.description());
+  }
+
   @PostMapping
   public void postVideo(@RequestBody VideoRequestDto newVideoRequestDto) {
     videoService.create(newVideoRequestDto);
